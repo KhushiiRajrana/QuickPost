@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+</head>
+<body>
+    <h2>Edit your Post</h2>
+    <p>Post id : <%= post.id %></p>
+    <p>Post username : <%= post.username %></p>
+    <form method="post" action="/posts/<%=post.id%>?_method=PATCH">
+        <textarea rows="10"  cols="35" name="content"><%= post.content %></textarea>
+        <button>Submit</button>
+    </form>
+    
+</body>
+</html>
+//html form se sirf get or post request bhej sakte  hai patch ,delete or put request nhi bhej sakte 
+//npm ke nader ek package hota hai method override ke nam se jo hamare present method ko overwrite kar deta hai
+//lets say if i wan tki mere pagese jitni bhi post request ja rhi hai wo sab delete request me convert ho jaye
+// we wil use query override  , form me action attribute me queri string likhi jaegi jo us  request ka method specify karegi
+// hme is package ko  require karna hota hai or har API ke liye app.use ke nader jake usko implement karna padega -- matlab check karna jab bhi koi request jaye to usme underscore method jaisa to kuch nhi aa rha na ,, by convention you use underscore method //
